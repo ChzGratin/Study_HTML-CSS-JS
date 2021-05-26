@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="charset" content="UTF_8">
+
+        <title>Key Input</title>
+
+        <script>
+            window.addEventListener("load", loadScript);    //window 객체가 로드되면 loadScript()로 이벤트 리스너 추가
+            function loadScript()
+            {
+                document.addEventListener("keydown", getKeyDown);
+                document.addEventListener("keyup", getKeyUp); 
+            }
+
+            //키의 상태(Key State)를 나타내는 상수 선언
+            const KS_UP = 0; //키를 누르지 않음
+            const KS_DOWN = 1; //키를 눌렀으나, 키음을 재생하지 않음
+            const KS_PLAYED = 2; //키를 눌렀고, 키음의 재생을 완료함
+
+            var keyState = {}; //키의 상태를 저장할 딕셔너리
+            //0 옥타브
+            keyState["C0"] = KS_UP;
+            keyState["C#0"] = KS_UP;
+            keyState["D0"] = KS_UP;
+            keyState["D#0"] = KS_UP;
+            keyState["E0"] = KS_UP;
+            keyState["F0"] = KS_UP;
+            keyState["F#0"] = KS_UP;
+            keyState["G0"] = KS_UP;
+            keyState["G#0"] = KS_UP;
+            keyState["A0"] = KS_UP;
+            keyState["A#0"] = KS_UP;
+            keyState["B0"] = KS_UP;
+            //1 옥타브
+            keyState["C1"] = KS_UP;
+            keyState["C#1"] = KS_UP;
+            keyState["D1"] = KS_UP;
+            keyState["D#1"] = KS_UP;
+            keyState["E1"] = KS_UP;
+            keyState["F1"] = KS_UP;
+            keyState["F#1"] = KS_UP;
+            keyState["G1"] = KS_UP;
+            keyState["G#1"] = KS_UP;
+            keyState["A1"] = KS_UP;
+            keyState["A#1"] = KS_UP;
+            keyState["B1"] = KS_UP;
+
+            var keyMap = {}; //입력된 키(KeyboardEvent.code)를 신디사이저의 키에 맵핑
+            //0 옥타브
+            keyMap["KeyZ"] = "C0";
+            keyMap["KeyS"] = "C#0";
+            keyMap["KeyX"] = "D0";
+            keyMap["KeyD"] = "D#0";
+            keyMap["KeyC"] = "E0";
+            keyMap["KeyV"] = "F0";
+            keyMap["KeyG"] = "F#0";
+            keyMap["KeyB"] = "G0";
+            keyMap["KeyH"] = "G#0";
+            keyMap["KeyN"] = "A0";
+            keyMap["KeyJ"] = "A#0";
+            keyMap["KeyM"] = "B0";
+            //1 옥타브
+            keyMap["KeyQ"] = "C1";
+            keyMap["Digit2"] = "C#1";
+            keyMap["KeyW"] = "D1";
+            keyMap["Digit3"] = "D#1";
+            keyMap["KeyE"] = "E1";
+            keyMap["KeyR"] = "F1";
+            keyMap["Digit5"] = "F#1";
+            keyMap["KeyT"] = "G1";
+            keyMap["Digit6"] = "G#1";
+            keyMap["KeyY"] = "A1";
+            keyMap["Digit7"] = "A#1";
+            keyMap["KeyU"] = "B1";
+
+            //테스트용 함수: keyState 출력
+            function printkeyState()
+            {
+                var log = document.getElementById("log");
+                log.innerHTML = "";
+                for(var key in keyState)
+                {
+                    if(keyState[key] == KS_DOWN)
+                    {
+                        log.innerHTML += "["+key+":"+keyState[key]+"] ";
+                    }
+                }
+            }
+
+            //키를 떼었을 때, keyState를 갱신 (keyup 이벤트)
+            function getKeyUp(e)
+            {
+                keyState[keyMap[e.code]] = KS_UP;
+                printkeyState(); //테스트
+            }
+            
+            //키를 눌렀을 때, keyState를 갱신 (keydown 이벤트)
+            //keydown 이벤트는 키를 누르는 동안 계속 발생되므로, KS_UP인 키만 KS_DOWN으로 갱신할 것!
+            function getKeyDown(e)
+            {
+                if(keyState[keyMap[e.code]] == KS_UP) //KS_UP인 키만
+                {
+                    keyState[keyMap[e.code]] = KS_DOWN; //KS_DOWN으로 갱신
+                    printkeyState(); //테스트
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>키 입력 테스트_202035156 박정현</h1>
+        <div id="log"></div>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!--================================
+
+    작성자: 202035156 박정현
+    설명: 메인 페이지. 신디사이저를 연주할 수 있음
+
+================================-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="charset" content="UTF_8">
+
+        <title>신디사이저 | 메인</title>
+
+        <!-- 스타일 로드 -->
+        <style>
+            @import url(style/synthStyle.css);
+            @import url(style/semantic.css);
+        </style>
+
+        <!-- 스크립트 로드 -->
+        <script src="script/synthKeyInput.js"></script>
+        <script src="script/synthKeySound.js"></script>
+        <script src="script/synthApp.js"></script>
+    </head>
+
+    <body>
+        <!-- 헤더 -->
+        <header>
+            <p>
+                2021년 1학기 웹프로그래밍 (09079_002)<br>
+                202035156 박정현<br>
+                기말프로젝트: 신디사이저
+            </p>
+        </header>
+
+        <!-- 네비게이터 -->
+        <nav>
+            <a href="./main.html">메인</a>&#32;|&#32;
+            <a href="./resrcRef.html">리소스 출처</a>&#32;|&#32;
+            <a href="./profile.html">프로필</a>
+        </nav>
+
+        <!-- 섹션 -->
+        <section>
+
+        <div class="synthBody" id="synthBody">
+            <!-- 1 옥타브 -->
+            <div class="whiteKey" id="C0"><p class="keyHint">Z</p></div>
+            <div class="whiteKey" id="D0"><p class="keyHint">X</p></div>
+            <div class="whiteKey" id="E0"><p class="keyHint">C</p></div>
+            <div class="whiteKey" id="F0"><p class="keyHint">V</p></div>
+            <div class="whiteKey" id="G0"><p class="keyHint">B</p></div>
+            <div class="whiteKey" id="A0"><p class="keyHint">N</p></div>
+            <div class="whiteKey" id="B0"><p class="keyHint">M</p></div>
+    
+            <div class="blackKey" id="Cs0"><p class="keyHint">S</p></div>
+            <div class="blackKey" id="Ds0"><p class="keyHint">D</p></div>
+            <div class="blackKey" id="Fs0"><p class="keyHint">G</p></div>
+            <div class="blackKey" id="Gs0"><p class="keyHint">H</p></div>
+            <div class="blackKey" id="As0"><p class="keyHint">J</p></div>
+
+            <!-- 2 옥타브 -->
+            <div class="whiteKey" id="C1"><p class="keyHint">,<br>Q</p></div>
+            <div class="whiteKey" id="D1"><p class="keyHint">.<br>W</p></div>
+            <div class="whiteKey" id="E1"><p class="keyHint">/<br>E</p></div>
+            <div class="whiteKey" id="F1"><p class="keyHint">R</p></div>
+            <div class="whiteKey" id="G1"><p class="keyHint">T</p></div>
+            <div class="whiteKey" id="A1"><p class="keyHint">Y</p></div>
+            <div class="whiteKey" id="B1"><p class="keyHint">U</p></div>
+    
+            <div class="blackKey" id="Cs1"><p class="keyHint">L<br>2</p></div>
+            <div class="blackKey" id="Ds1"><p class="keyHint">;<br>3</p></div>
+            <div class="blackKey" id="Fs1"><p class="keyHint">5</p></div>
+            <div class="blackKey" id="Gs1"><p class="keyHint">6</p></div>
+            <div class="blackKey" id="As1"><p class="keyHint">7</p></div>
+
+            <!-- 3 옥타브 -->
+            <div class="whiteKey" id="C2"><p class="keyHint">I</p></div>
+            <div class="whiteKey" id="D2"><p class="keyHint">O</p></div>
+            <div class="whiteKey" id="E2"><p class="keyHint">P</p></div>
+            <div class="whiteKey" id="F2"><p class="keyHint">[</p></div>
+            <div class="whiteKey" id="G2"><p class="keyHint">]</p></div>
+
+            <div class="blackKey" id="Cs2"><p class="keyHint">9</p></div>
+            <div class="blackKey" id="Ds2"><p class="keyHint">0</p></div>
+            <div class="blackKey" id="Fs2"><p class="keyHint">=</p></div>
+
+            <div class="synthPedal" id="synthPedal"><p class="keyHint">페달<br>Space</p></div>
+        </div>
+
+        <br>
+
+        <div class="synthSetting" id="synthSetting">
+            <!-- 신디사이저 설정 -->
+            실행:&#32;<input type="button" onclick="Run()" value="신디사이저 실행"><br>
+            볼륨:&#32;0%<input type="range" id="volume" onchange="SetVolume()" min="0" max="10" value="8">100%<br>
+            악기:&#32;
+            <select id="instrument" onchange="SetInstrument()">
+                <option value="piano">피아노</option>
+                <option value="bandoneon">반도네온</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <h1>신디사이저 사용법</h1>
+        <ol>
+            <li>실행 버튼을 누른다.</li>
+            <li>악기를 선택한다.</li>
+            <li>볼륨을 조절한다.</li>
+            <li>키보드를 눌러 연주한다.</li>
+        </ol>
+
+        <br>
+
+        <h1 style="color: red;">주의사항</h1>
+        <ul>
+            <li>Chrome, Microsoft Edge의 사용을 권장합니다.</li>
+            <li>Firefox, IE에선 신디사이저가 정상적으로 작동하지 않습니다.</li>
+        </ul>
+
+        </section>
+    </body>
+</html>

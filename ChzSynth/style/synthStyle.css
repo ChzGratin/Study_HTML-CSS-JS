@@ -1,0 +1,73 @@
+/*================================
+
+작성자: 202035156 박정현
+설명: 신디사이저 스타일
+
+//색(color) 문자열 상수 (synthApp.js 참조)
+const color_KeyWhite  = "ivory";
+const color_KeyBlack  = "#212121"
+const color_KeyDown   = "gold";
+const color_Pedal     = "#f2f2f2"; //회색 (95%)
+const color_Piano     = "#1a1a1a"; //회색 (10%)
+const color_Bandoneon = "maroon"; //적갈색
+
+================================*/
+
+
+/*================신디사이저================*/
+.synthBody{position: relative; width: fit-content; height: 17em; background-color: black;
+    opacity: 0.5; padding: 1em;}
+
+
+/*================키================*/
+.whiteKey {position: relative; display:block; width: 2em; height: 10em;
+    border: 0.2em solid black; border-radius: 0 0 0.5em 0.5em;
+    background-color: ivory;
+    text-align: center;
+    z-index: 0;
+    float: left;}
+
+.blackKey {position: absolute; top: 1em; width: 1em; height: 6em;
+    border: 0.2em solid black; border-radius: 0 0 0.2em 0.2em;
+    background-color: #212121;
+    text-align: center;
+    z-index: 1;}
+
+.keyHint {position: absolute; bottom: 0; width: 100%;
+    font-size: small; font-family: "Malgun Gothic"; font-weight: bold;}
+
+.whiteKey > .keyHint {color: black;}
+.blackKey > .keyHint {color: white;}
+
+
+/*================페달================*/
+.synthPedal {position: absolute; bottom: 1em; width: 12em; height: 4em;
+    border: 0.2em solid black; border-radius: 0.5em;
+    background-color: #f2f2f2;
+    text-align: center;}
+
+
+/*================키/페달 위치 세부조정================*/
+#Cs0{margin-left: 1.7em;}
+#Cs1{margin-left: 18.5em;}
+#Cs2{margin-left: 35.3em;}
+
+#Ds0{margin-left: 4.1em;}
+#Ds1{margin-left: 20.9em;}
+#Ds2{margin-left: 37.7em;}
+
+#Fs0{margin-left: 8.9em;}
+#Fs1{margin-left: 25.7em;}
+#Fs2{margin-left: 42.5em;}
+
+#Gs0{margin-left: 11.3em;}
+#Gs1{margin-left: 28.1em;}
+
+#As0{margin-left: 13.7em;}
+#As1{margin-left: 30.5em;}
+
+.synthPedal{margin-left: 17em;}
+
+/*================신디사이저 설정================*/
+.synthSetting{padding: 1em; background-color: #404040;
+    color:white; width: fit-content;}

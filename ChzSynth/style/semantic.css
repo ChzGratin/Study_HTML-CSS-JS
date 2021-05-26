@@ -1,0 +1,16 @@
+/*================================
+
+작성자: 202035156 박정현
+설명: 시맨틱 태그 스타일
+
+================================*/
+
+html, body {margin: 0; padding: 0; height: 100%; background-color:cornsilk;}
+
+header {height: 10em; background-color:ivory; color: white; font-size: x-large; font-weight: bold; position: relative;
+    background-image: url(../resrc/image/header.jpg); background-repeat: no-repeat; background-size:cover;}
+nav {background-color:bisque;}
+section {background-color: white;}
+header, nav, section {margin: 2em; padding: 1em; font-family: "Malgun Gothic";}
+
+header > * {position: absolute; bottom: 0;}

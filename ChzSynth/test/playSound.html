@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="charset" content="UTF_8">
+
+        <title>Play Sound</title>
+
+        <script>
+            const RATIO_FREQ = 1.05946309;
+
+            var keySound = new Audio("../resrc/audio/piano/A5.wav");
+            keySound.volume = 0.75;
+
+            //Uncaught DOMException: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD
+            //keySound.play();
+
+            function playKeySound()
+            {
+                keySound.pause();
+                keySound.currentTime = 0;
+                keySound.play();
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>키음 재생 테스트_202035156 박정현</h1>
+        <input type="button" onclick="playKeySound()">
+    </body>
+</html>
