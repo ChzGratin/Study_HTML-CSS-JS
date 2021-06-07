@@ -106,6 +106,12 @@ keyMap["Period"] = "D1";
 keyMap["Semicolon"] = "Ds1";
 keyMap["Slash"] = "E1";
 
+//편의성을 위한 공용 키 추가
+keyMap["ShiftRight"] = "F1";
+keyMap["Enter"] = "Fs1";
+keyMap["Tab"] = "B0";
+keyMap["Backquote"] = "As0";
+
 Object.seal(keyMap); //정말 중요한 부분!! keyMap에 새로운 원소를 추가할 수 없도록 봉인(seal)
 
 //키를 떼었을 때, keyState를 갱신 (keyup 이벤트)
@@ -132,4 +138,6 @@ function getKeyDown(e)
         
         e.preventDefault(); //스페이스바에 의한 스크롤 방어
     }
+
+    if(e.code == "Tab") { e.preventDefault(); } //탭키 방어
 }
